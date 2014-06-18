@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<control xmlns:def="Definition" xmlns="http://schemas.sitecore.net/Visual-Studio-Intellisense" xmlns:classysc="http://www.sitecore.net/classysc">
+  <ClassySCForm>
+    <FormPage Application="ClassySC/ClassySCManager">
+      <Stylesheet Src="Content Manager.css" DeviceDependant="true"/>
+      <Stylesheet Src="Ribbon.css" DeviceDependant="true"/>
+      <Stylesheet Src="Security editor.css"/>
+
+      <Script Src="/sitecore/shell/Applications/Content Manager/Content Editor.js"/>
+      <Script Src="/sitecore/shell/Controls/SitecoreObjects.js"/>
+
+      <CodeBeside Type="ClassySC.Builder.Client.ClassySCForm,ClassySC.Builder"/>
+
+      <DataContext ID="DataContext" Root="/sitecore/templates" />
+
+      <input type="hidden" id="scActiveRibbonStrip" name="scActiveRibbonStrip" />
+
+      <GridPanel ID="Grid" Width="100%" Height="100%">
+
+        <Border ID="RibbonPanel"/>
+
+        <GridPanel Columns="3" Width="100%" Height="100%" GridPanel.Height="100%" Style="table-layout:fixed">
+
+          <Scrollbox Width="100%" Height="100%" Background="white" Border="none" Padding="0px" ContextMenu='Treeview.GetContextMenu("contextmenu")' GridPanel.Width="100%">
+            <classysc:ClassySCTreeview ID="Treeview" DataContext="DataContext" Root="true" />
+          </Scrollbox>
+
+          <VSplitter ID="AccessViewerLeft" GridPanel.Width="4" Target="right" GridPanel.Style="background:#8595a4; display:expression(previousSibling.style.display)"/>
+
+          <Scrollbox  Width="100%" Height="100%" Background="window" Border="none" Padding="5px" GridPanel.Width="300" >
+            <div style="padding-bottom:5px;">
+              <Button Click="SelectAll" Header="Select All" /> <Button Click="SelectNone" Header="Select None" />
+            </div>
+            <Border ID="BuildListBorder">
+              <GridPanel ID="BuildListPanel" Columns="2"  Style="table-layout:fixed">
+              </GridPanel>
+            </Border>
+
+            <Checklist ID="BuildListCL" Header="Templates to Build" Height="90%"/>
+          </Scrollbox>
+
+
+
+        </GridPanel>
+
+
+
+      </GridPanel>
+    </FormPage>
+  </ClassySCForm>
+</control>

@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<xamlControls
+  xmlns:x="http://www.sitecore.net/xaml"
+  xmlns:ajax="http://www.sitecore.net/ajax"
+  xmlns:rest="http://www.sitecore.net/rest"
+  xmlns:javascript="http://www.sitecore.net/javascript"
+  xmlns:r="http://www.sitecore.net/renderings"
+  xmlns:xmlcontrol="http://www.sitecore.net/xmlcontrols"
+  xmlns:p="http://schemas.sitecore.net/Visual-Studio-Intellisense"
+  xmlns:asp="http://www.sitecore.net/microsoft/webcontrols"
+  xmlns:html="http://www.sitecore.net/microsoft/htmlcontrols"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+  <ClassySC.Builder.Client.EditFolder x:inherits="ClassySC.Builder.Client.EditFolder,ClassySC.Builder">
+    <Sitecore.Controls.DialogPage Header="Configure Folder Namespace" Icon="Flags/32x32/flag_generic.png" Text="Configure the Namespace for this folder" runat="server">
+
+      <AjaxScriptManager runat="server"/>
+      <ContinuationManager runat="server" />
+
+      <Style runat="server" x:placeholder="Stylesheets">
+        .scScrollbox textarea{
+        width:300px;
+        height:100px;
+        }
+
+        fieldset {
+        margin:"4px 0px 0px 0px";
+        }
+      </Style>
+      
+      <Scrollbox runat="server" Border="none" Background="transparent">
+
+        <Groupbox runat="server" Header="Namespace">
+          <asp:TextBox ID="NamespaceTB" runat="server" Width="300" />
+          <div>
+            Default: <asp:Literal ID="NamespaceLit" runat="server" />
+          </div>
+        </Groupbox>
+
+        <Groupbox runat="server" Header="File Path for this Folder">
+          <asp:TextBox ID="FolderFilePathTB" runat="server" Width="300" />
+          <div>
+            Default: <asp:Literal ID="FolderFilePathLit" runat="server" />
+          </div>
+        </Groupbox>
+        
+      </Scrollbox>
+    </Sitecore.Controls.DialogPage>
+  </ClassySC.Builder.Client.EditFolder>
+
+</xamlControls>
